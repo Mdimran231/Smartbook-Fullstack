@@ -1,0 +1,163 @@
+/* 1. Main Page Wrapper */
+.register-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Hero section jaisa matching animated background */
+    background: linear-gradient(-45deg, #6366f1, #a855f7, #ec4899, #2563eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. Content Wrapper (Centering the Card) */
+.register-content-wrapper {
+    flex: 1; /* Navbar aur Footer ke beech ka saara space lega */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px; /* Mobile par upar niche se space dega */
+    position: relative;
+}
+
+/* 3. Floating Shape Animation (Optional but cool) */
+.animated-shape {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    top: 15%;
+    left: 10%;
+    animation: float 8s infinite ease-in-out;
+    z-index: 0;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(30px) rotate(15deg); }
+}
+
+/* 4. Glassmorphism Card */
+.register-card {
+    background: rgba(255, 255, 255, 0.12); /* White transparent */
+    backdrop-filter: blur(20px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 45px 40px;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 420px;
+    z-index: 1;
+    animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 5. Form Elements */
+.form-title {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-align: center;
+    letter-spacing: -1px;
+}
+
+.form-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 1rem;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s all ease;
+    box-sizing: border-box;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* 6. Register Button */
+.register-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ffffff;
+    color: #6366f1; /* Primary Theme Color */
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background: #f8fafc;
+}
+
+.register-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 7. Footer Text (Login Link) */
+.footer-text-login {
+    margin-top: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.footer-text-login span {
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 5px;
+    border-bottom: 2px solid #ffffff;
+    transition: 0.3s;
+}
+
+.footer-text-login span:hover {
+    color: #6366f1;
+    border-bottom-color: transparent;
+    background: white;
+    padding: 2px 8px;
+    border-radius: 6px;
+}

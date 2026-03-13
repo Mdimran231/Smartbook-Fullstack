@@ -1,0 +1,209 @@
+/* 1. Main Page Wrapper */
+.login-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Hero section jaisa matching animated background */
+    background: linear-gradient(-45deg, #6366f1, #a855f7, #ec4899, #2563eb);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. Container Wrapper (Centering the Card) */
+.login-container-wrapper {
+    flex: 1; /* Space between Navbar and Footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 60px 20px; /* Space for sticky navbar */
+}
+
+/* 3. The Login Card */
+.login-card {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 600px;
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. LEFT SIDE - Info Panel */
+.card-left {
+    flex: 1;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.card-left h2 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.card-left p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    opacity: 0.9;
+    margin-bottom: 35px;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 14px;
+    border: none;
+    background: white;
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.google-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* 5. RIGHT SIDE - Form Panel */
+.card-right {
+    flex: 1.1;
+    padding: 60px 50px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-right h2 {
+    font-size: 2.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #64748b;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.card-right form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-right input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #f1f5f9;
+    border-radius: 14px;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    background: #f8fafc;
+    box-sizing: border-box;
+}
+
+.card-right input:focus {
+    border-color: #6366f1;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.login-btn {
+    background: #6366f1;
+    color: white;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 15px;
+}
+
+.login-btn:hover {
+    background: #4f46e5;
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+}
+
+.register-text {
+    margin-top: 30px;
+    text-align: center;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.register-text span {
+    color: #6366f1;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 5px;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.register-text span:hover {
+    border-bottom-color: #6366f1;
+}
+
+/* 6. RESPONSIVE DESIGN */
+@media (max-width: 968px) {
+    .login-container-wrapper {
+        padding: 120px 20px 60px 20px; /* Space for Navbar */
+        align-items: flex-start;
+    }
+
+    .login-card {
+        flex-direction: column;
+        height: auto;
+        max-width: 550px;
+    }
+    
+    .card-left {
+        padding: 50px 30px;
+        text-align: center;
+    }
+
+    .card-left h2 { font-size: 2rem; }
+    .card-left p { font-size: 1rem; }
+
+    .card-right {
+        padding: 50px 30px;
+    }
+}

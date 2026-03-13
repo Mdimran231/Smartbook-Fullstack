@@ -1,0 +1,165 @@
+/* Layout & Background */
+.dashboard-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f4f7fe;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 120px 5% 60px; /* Space for Navbar */
+}
+
+.dashboard-container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Header & Welcome Text */
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.welcome-badge {
+    background: rgba(99, 102, 241, 0.1);
+    color: #6366f1;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.welcome-box h1 {
+    font-size: 2.4rem;
+    color: #1e293b;
+    margin: 10px 0;
+}
+
+.user-name-gradient {
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+.welcome-box p { color: #64748b; font-size: 1rem; }
+
+/* Create Booking Button */
+.create-booking-btn {
+    background: #6366f1;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 14px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+}
+
+.create-booking-btn:hover {
+    transform: translateY(-3px);
+    background: #4f46e5;
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.3);
+}
+
+/* Stats Cards Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    padding: 35px;
+    border-radius: 24px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.gradient-blue { background: linear-gradient(135deg, #6366f1, #818cf8); }
+.gradient-green { background: linear-gradient(135deg, #10b981, #34d399); }
+.gradient-purple { background: linear-gradient(135deg, #a855f7, #c084fc); }
+
+.stat-info h3 { font-size: 1rem; opacity: 0.9; font-weight: 500; }
+.stat-number { font-size: 2.8rem; font-weight: 800; margin-top: 5px; }
+.stat-icon { font-size: 3rem; opacity: 0.25; }
+
+/* Booking List Section */
+.booking-section {
+    background: white;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.02);
+}
+
+.section-header h2 { font-size: 1.5rem; color: #1e293b; margin-bottom: 30px; }
+
+.booking-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+    border-radius: 18px;
+    background: #f9fafb;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+    border: 1px solid #f1f5f9;
+    animation: slideIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.booking-row:hover {
+    background: white;
+    border-color: #6366f1;
+    transform: scale(1.01) translateX(5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.service-info { display: flex; align-items: center; gap: 18px; }
+.service-dot { width: 12px; height: 12px; background: #6366f1; border-radius: 50%; box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
+
+.service-info h3 { font-size: 1.15rem; color: #1e293b; font-weight: 600; }
+.date-text { font-size: 0.9rem; color: #64748b; margin-top: 4px; }
+
+/* Status Styles */
+.status {
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status.pending { background: #fffbeb; color: #d97706; }
+.status.approved { background: #ecfdf5; color: #059669; }
+.status.rejected { background: #fef2f2; color: #dc2626; }
+
+/* Animations */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in { animation: fadeIn 1s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* Mobile View */
+@media (max-width: 850px) {
+    .dash-header { flex-direction: column; text-align: center; gap: 25px; }
+    .booking-row { flex-direction: column; gap: 20px; text-align: center; }
+}

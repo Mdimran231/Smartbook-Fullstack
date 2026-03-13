@@ -1,0 +1,121 @@
+.services-page {
+    min-height: 100vh;
+    background: #f8fafc;
+    padding-bottom: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.services-header {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeInDown 0.8s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.services-header h1 { font-size: 3rem; color: #1e293b; margin-bottom: 10px; }
+.services-header h1 span { color: #6366f1; }
+.services-header p { color: #64748b; font-size: 1.1rem; }
+
+/* Grid Layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 8%;margin-bottom: 80px;
+
+}
+
+/* Card Styling */
+.service-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+}
+
+.card-image {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.service-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.price-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #6366f1;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.card-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    color: #1e293b;
+    margin-bottom: 12px;
+}
+
+.card-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Book Now Button */
+.book-now-btn {
+    width: 100%;
+    background: #f1f5f9;
+    color: #4f46e5;
+    border: 2px solid #e2e8f0;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.service-card:hover .book-now-btn {
+    background: #6366f1;
+    color: white;
+    border-color: #6366f1;
+}
+
+.book-now-btn:active {
+    transform: scale(0.95);
+}

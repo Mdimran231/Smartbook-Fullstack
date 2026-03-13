@@ -1,0 +1,159 @@
+/* Container Setup */
+.booking-page-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.booking-wrapper {
+    flex: 1; /* Isse footer hamesha niche rahega */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 60px; /* Navbar se niche dikhane ke liye padding */
+    background: #f8fafc;
+}
+
+.booking-container {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Left Panel - Gradient & Content */
+.info-panel {
+    flex: 1;
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    color: white;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-panel h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.info-panel h1 span {
+    color: #a5b4fc;
+}
+
+.info-panel p {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    backdrop-filter: blur(5px);
+}
+
+/* Right Panel - Form */
+.form-panel {
+    flex: 1.2;
+    padding: 60px 50px;
+    background: white;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: #6b7280;
+    margin-bottom: 35px;
+}
+
+/* Input Styling */
+.input-field {
+    margin-bottom: 25px;
+}
+
+.input-field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.input-field input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.input-field input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s transform, 0.3s background;
+}
+
+.submit-btn:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+}
+
+.back-link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .booking-container {
+        flex-direction: column;
+    }
+    .info-panel {
+        padding: 40px 20px;
+        text-align: center;
+    }
+}

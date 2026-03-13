@@ -1,0 +1,75 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Navbar fixed hai isliye itna space dena zaroori hai */
+  padding-top: 75px; 
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc; /* Light background for professional look */
+  color: #1e293b;
+  line-height: 1.5;
+  overflow-x: hidden; /* Horizontal scroll rokne ke liye */
+}
+
+#root {
+  width: 100%;
+  min-height: calc(100vh - 75px);
+  display: block; /* Flex hata diya taaki layout natural rahe */
+}
+
+/* Global Container (Optional: Pages mein use kar sakte ho) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Logo & Animations (Vite Defaults - Cleaned Up) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* Utilities */
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Scrollbar Styling (Optional: For better UI) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4f46e5;
+}

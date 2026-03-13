@@ -1,0 +1,50 @@
+# ==========================================
+# BACKEND (Spring Boot - Jo tune bheja tha)
+# ==========================================
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS / IntelliJ / NetBeans ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+.idea/
+*.iws
+*.iml
+*.ipr
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# ==========================================
+# FRONTEND (React.js)
+# ==========================================
+# Isse node_modules GitHub par nahi jayenge
+node_modules/
+/frontend/node_modules/
+/frontend/build/
+/frontend/dist/
+
+# Security (API Keys aur Passwords)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ==========================================
+# SYSTEM & EDITORS
+# ==========================================
+.vscode/
+.DS_Store
+Thumbs.db
