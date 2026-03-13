@@ -7,6 +7,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,13 +33,11 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtFilter;
     private final UserDetailsService userDetailsService;
 
-    // 🔐 Password Encoder
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-    // 🔐 Authentication Provider
     @Bean
     public AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -47,14 +46,12 @@ public class SecurityConfig {
         return provider;
     }
 
-    // 🔐 Authentication Manager
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
-    // 🔐 Security Filter Chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
@@ -62,19 +59,21 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-
-                        // Public APIs
+                        // 1. Browser testing ke liye root path allow kiya
+                        .requestMatchers("/").permitAll() 
+                        
+                        // 2. Public APIs (Login/Signup)
                         .requestMatchers("/api/auth/**").permitAll()
 
-                        // USER permissions
+                        // 3. USER permissions
                         .requestMatchers(HttpMethod.POST, "/api/bookings").hasRole("USER")
                         .requestMatchers("/api/bookings/my").hasRole("USER")
 
-                        // ADMIN permissions
+                        // 4. ADMIN permissions
                         .requestMatchers(HttpMethod.GET, "/api/bookings").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/bookings/**").hasRole("ADMIN")
 
-                        // Any other request must be authenticated
+                        // Baaki sab ke liye authentication zaroori hai
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session ->
@@ -86,21 +85,17 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // 🌍 CORS Configuration (React Frontend Allow)
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
-
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://localhost:3002"));
-        configuration.setAllowedMethods(
-                List.of("GET","POST","PUT","DELETE","OPTIONS"));
+        // Render deployment ke liye allowed origins ko flexible rakha hai
+        configuration.setAllowedOriginPatterns(List.of("*")); 
+        configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
 
-        UrlBasedCorsConfigurationSource source =
-                new UrlBasedCorsConfigurationSource();
-
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
 
         return source;
