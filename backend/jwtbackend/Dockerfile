@@ -5,7 +5,8 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Step 2: Run the application
-FROM openjdk:17-jdk-slim
+# Yahan humne stable image change kar di hai
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8089
