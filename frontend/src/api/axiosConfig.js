@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8089"
+  // Localhost hata kar Render wala URL daal diya
+  baseURL: "https://smartbook-backend-e3wr.onrender.com"
 });
 
 api.interceptors.request.use((config) => {
@@ -12,4 +13,4 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-export default api;   // ✅ Ye line important hai
+export default api;
